@@ -1,0 +1,18 @@
+for i in 1 0.1 0.01 0.001
+do
+  ./DeepSpeech.py --train_files ../german-speech-corpus/data_tuda+voxforge+mozilla/graph3/train_100.csv --dev_files ../german-speech-corpus/data_tuda+voxforge+mozilla/graph3/dev.csv --test_files ../german-speech-corpus/data_tuda+voxforge+mozilla/graph3/test.csv --alphabet_config_path ../deepspeech-german/data/alphabet.txt --lm_trie_path ../dataset-german/trie --lm_binary_path ../dataset-german/lm.binary --test_batch_size 36 --train_batch_size 24 --dev_batch_size 36 --epochs 75 --learning_rate 0.0005 --dropout_rate 0.4 --export_dir ../models
+done
+
+
+for i in 1 2 3 4 5
+do
+	for i in 6 7 8 9 10
+	do
+		echo "Looping ... number $i"
+	done
+  echo "Looping ... number $i"
+done
+
+for i in 1 2 3 ; do  for j in 4 5 6; do  echo "Looping ... number $j"; done done
+
+nested for loop in shell script

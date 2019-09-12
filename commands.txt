@@ -1,0 +1,2 @@
+#kill session
+kill $(ps aux | grep python | grep DeepSpeech.py | awk '{print $2}')
