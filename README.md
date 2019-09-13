@@ -75,14 +75,14 @@ $ make -j `nproc`
 
 We used an open-source [German Speech Corpus](http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz) released by [University of Hamburg](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html).
 
-- Data pre-processing
+1. Pre-process the data
 
 ```
 cd deepspeech-german
 ./pre-processing/prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
 ```
 
-- KenLM is used to build the LM
+2. Build the Language Model
 ```
 $kenlm_bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3
 $kenlm_bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
