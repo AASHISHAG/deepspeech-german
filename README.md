@@ -22,8 +22,15 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 6. [Acknowledgments](#acknowledgments)
 
 
-```command
-hhhh
+```
+>> hhhh
+```
+
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
 ```
 
 ## Acknowledgments
