@@ -10,7 +10,7 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 
 **Demo:** https://drive.google.com/file/d/1GKOP4KyORPHvhIS-FoQrAMIiBHGjGopb/view?usp=sharing
 
-This Readme will be updated regularly to include information about the code and guidelines to use this software.
+This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSpeech/releases/tag/v0.5.0). Refer to Mozilla DeepSpeech for lastest updates.
 
 ## Contents
 
