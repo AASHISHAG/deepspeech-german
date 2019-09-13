@@ -20,3 +20,8 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 4. [Some Training Results](#some-training-results)
 5. [Running code at Case HPC](#running-code-at-case-hpc)
 6. [Acknowledgments](#acknowledgments)
+
+
+## Acknowledgments
+* [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author.
+* [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
