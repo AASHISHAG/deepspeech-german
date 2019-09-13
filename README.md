@@ -23,7 +23,7 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 
 
 ```command
-
+hhhh
 ```
 
 ## Acknowledgments
