@@ -26,15 +26,13 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 pip install -r requirements.txt
 ```
 
-### Language  model
-For the language model a text corpus is used, also provided by the people of the " German speech data corpus"
-(https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html).
 
-### Speech data
+### Speech Corpus
 
-* https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html (~30h)
-* http://www.repository.voxforge1.org/downloads/de/Trunk/Audio/Main/16kHz_16bit/ (~50h)
-* https://nats.gitlab.io/swc/ (~150h)
+* [German Distant Speech Corpus (TUDA-De)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html) ~127h
+* [Mozilla Common Voice](https://voice.mozilla.org/) ~140h
+* [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german) ~35h
+
 
 ### Download the data
 1. Download the text corpus from http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz and store it to `text_corpus_path`.
