@@ -56,7 +56,21 @@ dl.download(voxforge_corpus_path)
 ./prepare_data.py $tuda_corpus_path $voxforge_corpus_path $exp_path/data
 ```
 
-### Build LM
+### Language Model
+
+We used [KenLM](https://github.com/kpu/kenlm.git) toolkit to train a 3-gram language model. It is Language Model inference code by [Kenneth Heafield](https://kheafield.com/)
+
+- **Installation**
+
+```
+$ git clone https://github.com/kpu/kenlm.git
+$ cd kenlm
+$ mkdir -p build
+$ cd build
+$ cmake ..
+$ make -j `nproc`
+```
+
 ```
 # First the text is normalized and cleaned.
 ./prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
