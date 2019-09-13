@@ -22,8 +22,10 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 6. [Acknowledgments](#acknowledgments)
 
 
-```
+```diff
 >> hhhh
+- hi
++ bye
 ```
 
 ```diff
