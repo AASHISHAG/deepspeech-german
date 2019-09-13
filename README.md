@@ -75,7 +75,13 @@ $ make -j `nproc`
 
 We used an open-source [German Speech Corpus](http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz) released by [University of Hamburg](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html).
 
-1. Pre-process the data
+1. Download the data
+
+```
+wget http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz
+```
+
+2. Pre-process the data
 
 ```
 cd deepspeech-german
