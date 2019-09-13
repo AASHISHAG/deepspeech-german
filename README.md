@@ -101,9 +101,20 @@ $kenlm_bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 $deepspeech/native_client/generate_trie data/alphabet.txt $exp_path/lm.binary $exp_path/clean_vocab.txt $exp_path/trie
 ```
 
-### Run training
+### Training
+
+Define the hyperparameters in _deepspeech-german/train_model.sh_ file.
+
 ```
-./run_training.sh $deepspeech $(realpath data/alphabet.txt) $exp_path
+deepspeech-german/train_model.sh
+```
+
+### Hyper-Paramter Optimization
+
+Define the hyperparameters in _deepspeech-german/hyperparameter_optimization.sh_ file.
+
+```
+deepspeech-german/hyperparameter_optimization.sh
 ```
 
 ## Acknowledgments
