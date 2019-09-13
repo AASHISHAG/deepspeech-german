@@ -1,5 +1,4 @@
 #! /usr/bin/env python
-# MAINTAINER: YNOP
 
 """
 1. Load all corpora where a path is given.
