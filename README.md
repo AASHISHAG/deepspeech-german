@@ -34,16 +34,15 @@ pip install -r requirements.txt
 * [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german) ~35h
 
 
-### Download the data
-1. Download the text corpus from http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz and store it to `text_corpus_path`.
-2. Download the German Distant Speech Corpus (TUDA) from http://www.repository.voxforge1.org/downloads/de/german-speechdata-package-v2.tar.gz and store it to `tuda_corpus_path`.
-3. Download the Spoken Wikipedia Corpus (SWC) from https://nats.gitlab.io/swc/ and prepare
-   it according to https://audiomate.readthedocs.io/en/latest/documentation/indirect_support.html.
-4. Download the Voxforge German Speech data (via pingu python library):
+- Download the corpus
+
+```
+$ wget http://www.repository.voxforge1.org/downloads/de/german-speechdata-package-v2.tar.gz
+$ wget 
+```
 
 ```python
 from audiomate.corpus import io
-
 dl = io.VoxforgeDownloader(lang='de')
 dl.download(voxforge_corpus_path)
 ```
