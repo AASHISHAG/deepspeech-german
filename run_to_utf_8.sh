@@ -1,5 +1,6 @@
 #!/bin/bash
 # file name: to_utf8
+# MAINTAINER: Aashish Agarwal
 
 FILES="/home/LTLab.lan/agarwal/german-speech-corpus/voxforge/*/etc/prompts-original"
 
