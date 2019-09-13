@@ -37,8 +37,11 @@ pip install -r requirements.txt
 - Download the corpus
 
 ```
-$ wget http://www.repository.voxforge1.org/downloads/de/german-speechdata-package-v2.tar.gz
+$ mkdir tuda
 $ wget 
+$ mkdir mozilla
+$ wget 
+$ mkdir voxforge
 ```
 
 ```python
@@ -47,10 +50,11 @@ dl = io.VoxforgeDownloader(lang='de')
 dl.download(voxforge_corpus_path)
 ```
 
-### Prepare audio data
+- Prepare audio data
+
 ```
-# prepare_data.py creates the csv files defining the audio data used for training
-./prepare_data.py $tuda_corpus_path $voxforge_corpus_path $exp_path/data
+$ deepspeech-german/prepare_data.py --tuda $tuda_corpus_path $export_path/data_tuda
+$ deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path/data_voxforge
 ```
 
 ### Language Model
