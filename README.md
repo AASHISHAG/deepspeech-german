@@ -18,10 +18,14 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 2. [Data-Preprocessing for Training](#data-preprocessing-for-training)
 3. [Training](#training)
 4. [Some Training Results](#some-training-results)
-5. [Running code at Case HPC](#running-code-at-case-hpc)
+5. [](#)
 6. [Acknowledgments](#acknowledgments)
 
 
+```command
+>> dmfkm
+```
+
 ## Acknowledgments
-* [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author.
+* [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
