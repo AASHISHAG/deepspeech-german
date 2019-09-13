@@ -21,11 +21,21 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 5. [](#)
 6. [Acknowledgments](#acknowledgments)
 
-### Install Python Requirements
+### Requirements
+
+#### Installing Python bindings
+
 ```
-pip install -r requirements.txt
+pip3 install -r python_requirements.txt
 ```
 
+#### Installing Linux dependencies
+
+The important Linux dependencies can be found in linux_requirements.
+
+```
+xargs -a linux_requirements.txt sudo apt-get install
+```
 
 ### Speech Corpus
 
@@ -89,13 +99,14 @@ cd deepspeech-german
 ./pre-processing/prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
 ```
 
-2. Build the Language Model
+3. Build the Language Model
 ```
 $kenlm_bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3
 $kenlm_bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 ```
 
-### Build trie
+### Build Trie
+
 ```
 # The deepspeech tools are used to create the trie
 $deepspeech/native_client/generate_trie data/alphabet.txt $exp_path/lm.binary $exp_path/clean_vocab.txt $exp_path/trie
@@ -106,7 +117,7 @@ $deepspeech/native_client/generate_trie data/alphabet.txt $exp_path/lm.binary $e
 Define the hyperparameters in _deepspeech-german/train_model.sh_ file.
 
 ```
-deepspeech-german/train_model.sh
+$ deepspeech-german/train_model.sh
 ```
 
 ### Hyper-Paramter Optimization
@@ -114,8 +125,10 @@ deepspeech-german/train_model.sh
 Define the hyperparameters in _deepspeech-german/hyperparameter_optimization.sh_ file.
 
 ```
-deepspeech-german/hyperparameter_optimization.sh
+$ deepspeech-german/hyperparameter_optimization.sh
 ```
+
+### Results
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
