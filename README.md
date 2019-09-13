@@ -109,4 +109,4 @@ $deepspeech/native_client/generate_trie data/alphabet.txt $exp_path/lm.binary $e
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
-* [Matthias](https://github.com/ynop)
+* [Matthias](https://github.com/ynop/audiomate)
