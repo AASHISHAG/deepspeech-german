@@ -27,3 +27,4 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
+* [Matthias](https://github.com/ynop)
