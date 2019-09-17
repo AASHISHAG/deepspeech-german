@@ -2,7 +2,7 @@
 
 _This is the project for the paper [German End-to-end Speech Recognition based on DeepSpeech]() published at [KONVENS 2019](https://2019.konvens.org/)._
 
-This project aims to develop a working Speech to Text module using [Mozilla DeepSpeech](https://github.com/mozilla/DeepSpeech), which can be used for any Audio processing pipeline. [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) is a state-of-the-art open source automatic speech recognition (ASR) toolkit. DeepSpeech is using a model trained by machine learning techniques based on [Baidu's Deep Speech](https://gigaom2.files.wordpress.com/2014/12/deep_speech3_12_17.pdf) research paper. Project DeepSpeech uses Google's TensorFlow to make the implementation easier.
+This project aims to develop a working Speech to Text module using [Mozilla DeepSpeech](https://github.com/mozilla/DeepSpeech), which can be used for any Audio processing pipeline. [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) is a state-of-the-art open-source automatic speech recognition (ASR) toolkit. DeepSpeech is using a model trained by machine learning techniques based on [Baidu's Deep Speech](https://gigaom2.files.wordpress.com/2014/12/deep_speech3_12_17.pdf) research paper. Project DeepSpeech uses Google's TensorFlow to make the implementation easier.
 
 ## Important Links:
 
@@ -22,6 +22,7 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 6. [Results](#results)
 7. [Trained Models](#trained-models)
 8. [Acknowledgments](#acknowledgments)
+9. [References](#references)
 
 ### Requirements
 
@@ -35,7 +36,7 @@ pip3 install -r python_requirements.txt
 
 #### Installing Linux dependencies
 
-The important Linux dependencies can be found in linux_requirements.
+The necessary Linux dependencies can be found in linux_requirements.
 
 ```
 xargs -a linux_requirements.txt sudo apt-get install
@@ -197,6 +198,7 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 | Tuda-De + Voxforge | xx |
 | Tuda-De + Voxforge + Mozilla | xx |
 
+_NOTE: Refer our paper for _
 
 ### Trained Models
 
@@ -208,3 +210,12 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
 * [Matthias](https://github.com/ynop/audiomate)
+
+## References
+If you use our findings/scripts in your academic work, please cite:
+
+```
+
+```
+
+An open-access Arxiv preprint is available here: 
