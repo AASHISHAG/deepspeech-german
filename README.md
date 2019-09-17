@@ -119,14 +119,14 @@ We used an open-source [German Speech Corpus](http://ltdata1.informatik.uni-hamb
 1. Download the data
 
 ```
-wget http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz
+$ wget http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz
+$ gzip -d German_sentences_8mil_filtered_maryfied.txt.gz
 ```
 
 2. Pre-process the data
 
 ```
-cd deepspeech-german
-./pre-processing/prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
+$ deepspeech-german/pre-processing/prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
 ```
 
 3. Build the Language Model
