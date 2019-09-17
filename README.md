@@ -139,7 +139,7 @@ $kenlm/build/bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 
 To build _Trie_ for the above trained _Language Model._
 
-# Requirements
+#### Requirements
 
 * [Mozilla's TensorFlow `r1.14` branch](https://github.com/mozilla/tensorflow/tree/r1.14)
 * [General TensorFlow requirements](https://www.tensorflow.org/install/install_sources)
@@ -162,7 +162,7 @@ $ TFDIR=~/tensorflow
 $ cd ../DeepSpeech/native_client
 $ make deepspeech
 ```
-_NOTE: Refer Mozilla's documentation for updates. We used Bazel Build label: 0.19.2 with DeepSpeechV0.5.0_
+_NOTE: Refer Mozilla's documentation for updates. We used **Bazel Build label: 0.19.2** with **DeepSpeechV0.5.0**_
 
 2. Build Trie
 ```
