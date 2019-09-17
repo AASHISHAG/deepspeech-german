@@ -139,6 +139,14 @@ $kenlm/build/bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 
 To build _Trie_ for the above trained _Language Model._
 
+# Requirements
+
+* [Mozilla's TensorFlow `r1.14` branch](https://github.com/mozilla/tensorflow/tree/r1.14)
+* [General TensorFlow requirements](https://www.tensorflow.org/install/install_sources)
+* [libsox](https://sourceforge.net/projects/sox/)
+* [SWIG >= 3.0.12](http://www.swig.org/)
+* [node-pre-gyp](https://github.com/mapbox/node-pre-gyp)
+
 1. Build Native Client.
 
 ```
