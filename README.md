@@ -170,18 +170,18 @@ $ DeepSpeech/native_client/generate_trie $exp_path/alphabet.txt $exp_path/lm.bin
 
 ### Training
 
-Define the hyperparameters in _deepspeech-german/train_model.sh_ file.
+Define the path of the corpus and the hyperparameters in _deepspeech-german/train_model.sh_ file.
 
 ```
-$ deepspeech-german/train_model.sh
+$ nohup deepspeech-german/train_model.sh &
 ```
 
 ### Hyper-Paramter Optimization
 
-Define the hyperparameters in _deepspeech-german/hyperparameter_optimization.sh_ file.
+Define the path of the corpus and the hyperparameters in _deepspeech-german/hyperparameter_optimization.sh_ file.
 
 ```
-$ deepspeech-german/hyperparameter_optimization.sh
+$ nohup deepspeech-german/hyperparameter_optimization.sh &
 ```
 
 ### Results
