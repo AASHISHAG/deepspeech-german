@@ -46,23 +46,23 @@ xargs -a linux_requirements.txt sudo apt-get install
 * [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german) ~35h
 
 
-- Download the corpus
+- **Download the corpus**
 
-1. Tuda-De
+1. **_Tuda-De_**
 ```
 $ mkdir tuda
 $ cd tuda
 $ wget 
 ```
 
-2. Mozilla
+2. **_Mozilla_**
 ```
 $ mkdir mozilla
 $ cd mozilla
 $ wget
 ```
  
-3. Voxforge
+3. **_Voxforge_**
 ```
 $ mkdir voxforge
 $ cd voxforge
