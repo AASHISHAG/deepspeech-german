@@ -6,7 +6,7 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 
 <p align="center">
 	<figure>
-		<img src="media/deep-speech-v3.png"  align="center" alt=".." title="DeepSpeech v0.5.0" />
+		<img src="media/deep-speech-v3.png"  align="center" title="DeepSpeech v0.5.0" />
 		<figcaption>DeepSpeech v0.5.0</figcaption>
 	</figure>
 </p>
