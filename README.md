@@ -131,8 +131,8 @@ $ deepspeech-german/pre-processing/prepare_vocab.py $text_corpus_path $exp_path/
 
 3. Build the Language Model
 ```
-$kenlm_bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3
-$kenlm_bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
+$kenlm/build/bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3
+$kenlm/build/bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 ```
 
 ### Build Trie
