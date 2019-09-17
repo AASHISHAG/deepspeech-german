@@ -84,7 +84,7 @@ dl = io.VoxforgeDownloader(lang='de')
 dl.download(voxforge_corpus_path)
 ```
 
-- Prepare audio data
+- **Prepare the Audio Data**
 
 ```
 $ cd ..
