@@ -20,7 +20,8 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 4. [Training](#training)
 5. [Hyper-Paramter Optimization](#hyper-paramter-optimization)
 6. [Results](#results)
-7. [Acknowledgments](#acknowledgments)
+7. [Trained Models](#models)
+8. [Acknowledgments](#acknowledgments)
 
 ### Requirements
 
@@ -186,6 +187,8 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 ```
 
 ### Results
+
+### Models
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
