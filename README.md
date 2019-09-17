@@ -14,12 +14,13 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 
 ## Contents
 
-1. [Getting Started](#getting-started)
-2. [Data-Preprocessing for Training](#data-preprocessing-for-training)
-3. [Training](#training)
-4. [Some Training Results](#some-training-results)
-5. [](#)
-6. [Acknowledgments](#acknowledgments)
+1. [Requirements](#requirements)
+2. [Speech Corpus](#speech-corpus)
+3. [Language Model](#language-model)
+4. [Training](#training)
+5. [Hyper-Paramter Optimization](#hyper-paramter-optimization)
+6. [Results](#results)
+7. [Acknowledgments](#acknowledgments)
 
 ### Requirements
 
