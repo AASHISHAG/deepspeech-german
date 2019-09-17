@@ -194,13 +194,15 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 | Mozilla | xx |
 | Voxforge | xx |
 | Tuda-De | xx |
-| Tuda-De + Mozilla | xx |
-| Tuda-De + Voxforge | xx |
-| Tuda-De + Voxforge + Mozilla | xx |
+| Tuda-De+Mozilla | xx |
+| Tuda-De+Voxforge | xx |
+| Tuda-De+Voxforge+Mozilla | xx |
 
-_NOTE: Refer our paper for _
+_NOTE: Refer our paper for findings._
 
 ### Trained Models
+
+The following DeepSpeech models can be directly re-trained on new dataset.
 
 1. [Voxforge]()
 2. [Mozilla]()
