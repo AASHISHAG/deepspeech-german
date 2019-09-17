@@ -141,7 +141,6 @@ To build _Trie_ for the above trained _Language Model._
 
 #### Requirements
 
-* [Mozilla's TensorFlow `r1.14` branch](https://github.com/mozilla/tensorflow/tree/r1.14)
 * [General TensorFlow requirements](https://www.tensorflow.org/install/install_sources)
 * [libsox](https://sourceforge.net/projects/sox/)
 * [SWIG >= 3.0.12](http://www.swig.org/)
@@ -162,7 +161,7 @@ $ TFDIR=~/tensorflow
 $ cd ../DeepSpeech/native_client
 $ make deepspeech
 ```
-_NOTE: Refer Mozilla's documentation for updates. We used **Bazel Build label: 0.19.2** with **DeepSpeechV0.5.0**_
+_NOTE: Refer [Mozilla's documentation](https://github.com/mozilla/DeepSpeech/tree/master/native_client) for updates. We used **Bazel Build label: 0.19.2** with **DeepSpeechV0.5.0**_
 
 2. Build Trie
 ```
