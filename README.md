@@ -20,7 +20,7 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 4. [Training](#training)
 5. [Hyper-Paramter Optimization](#hyper-paramter-optimization)
 6. [Results](#results)
-7. [Trained Models](#models)
+7. [Trained Models](#trained-models)
 8. [Acknowledgments](#acknowledgments)
 
 ### Requirements
@@ -198,7 +198,7 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 | Tuda-De + Voxforge + Mozilla | xx |
 
 
-### Models
+### Trained Models
 
 1. [Voxforge]()
 2. [Mozilla]()
