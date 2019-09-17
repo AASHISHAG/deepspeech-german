@@ -198,7 +198,7 @@ Some results from our findings.
 - Tuda-De+Voxforge ~xx
 - Tuda-De+Voxforge+Mozilla ~xx
 
-_NOTE: Refer our paper for findings._
+_NOTE: Refer our paper for more findings._
 
 ### Trained Models
 
