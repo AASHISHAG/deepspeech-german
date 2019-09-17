@@ -26,6 +26,8 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 #### Installing Python bindings
 
 ```
+virtualenv -p python3 deepspeech-german
+source deepspeech-german/bin/activate
 pip3 install -r python_requirements.txt
 ```
 
@@ -46,12 +48,24 @@ xargs -a linux_requirements.txt sudo apt-get install
 
 - Download the corpus
 
+1. Tuda-De
 ```
 $ mkdir tuda
+$ cd tuda
 $ wget 
+```
+
+2. Mozilla
+```
 $ mkdir mozilla
-$ wget 
+$ cd mozilla
+$ wget
+```
+ 
+3. Voxforge
+```
 $ mkdir voxforge
+$ cd voxforge
 ```
 
 ```python
