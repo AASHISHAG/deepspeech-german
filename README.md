@@ -135,11 +135,30 @@ $kenlm/build/bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.a
 $kenlm/build/bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
 ```
 
-### Build Trie
+### Trie
+
+To build _Trie_ for the above trained _Language Model._
+
+1. Build Native Client.
 
 ```
-# The deepspeech tools are used to create the trie
-$deepspeech/native_client/generate_trie data/alphabet.txt $exp_path/lm.binary $exp_path/clean_vocab.txt $exp_path/trie
+# The DeepSpeech tools are used to create the trie
+$ git clone https://github.com/mozilla/tensorflow.git
+$ git checkout origin/r1.14
+$ cd tensorflow
+$ ./configure
+$ cd tensorflow
+$ ln -s ../DeepSpeech/native_client ./
+rkspace_status_command="bash native_client/bazel_workspace_status_cmd.sh" --config=monolithic -c opt --copt=-O3 --copt="-D_GLIBCXX_USE_CXX11_ABI=0" --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:generate_trie --config=cuda
+$ TFDIR=~/tensorflow
+$ cd ../DeepSpeech/native_client
+$ make deepspeech
+```
+_NOTE: Refer Mozilla's documentation for updates. We used Bazel Build label: 0.19.2 with DeepSpeechV0.5.0_
+
+2. Build Trie
+```
+$ DeepSpeech/native_client/generate_trie $exp_path/alphabet.txt $exp_path/lm.binary $exp_path/clean_vocab.txt $exp_path/trie
 ```
 
 ### Training
