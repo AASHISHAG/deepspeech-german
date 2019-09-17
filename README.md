@@ -46,7 +46,7 @@ The necessary Linux dependencies can be found in linux_requirements.
 xargs -a linux_requirements.txt sudo apt-get install
 ```
 
-###Mozilla DeepSpeech
+#### Mozilla DeepSpeech
 ```
 $ wget https://github.com/mozilla/DeepSpeech/archive/v0.5.0.tar.gz 
 $ tar -xzvf v0.5.0.tar.gz
