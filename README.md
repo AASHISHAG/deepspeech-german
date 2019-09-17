@@ -189,14 +189,14 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 
 ### Results
 
-| Dataset | WER |
-| --- | --- |
-| Mozilla | xx |
-| Voxforge | xx |
-| Tuda-De | xx |
-| Tuda-De+Mozilla | xx |
-| Tuda-De+Voxforge | xx |
-| Tuda-De+Voxforge+Mozilla | xx |
+Some results from our findings.
+
+** Mozilla ~ **
+** Voxforge ~ **
+** Tuda-De ~ **
+** Tuda-De+Mozilla ~ **
+** Tuda-De+Voxforge ~ **
+** Tuda-De+Voxforge+Mozilla ~ **
 
 _NOTE: Refer our paper for findings._
 
