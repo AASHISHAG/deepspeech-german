@@ -2,9 +2,8 @@
 # file name: to_utf8
 # MAINTAINER: Aashish Agarwal
 
-FILES="/home/LTLab.lan/agarwal/german-speech-corpus/voxforge/*/etc/prompts-original"
-
-#FILES="/home/LTLab.lan/agarwal/german-speech-corpus/voxforge/*/etc/PROMPTS"
+FILES="voxforge/*/etc/prompts-original"
+#FILES="voxforge/*/etc/PROMPTS"
 
 for f in $FILES
 do

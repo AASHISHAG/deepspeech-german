@@ -39,6 +39,13 @@ The important Linux dependencies can be found in linux_requirements.
 xargs -a linux_requirements.txt sudo apt-get install
 ```
 
+###Mozilla DeepSpeech
+```
+$ wget https://github.com/mozilla/DeepSpeech/archive/v0.5.0.tar.gz 
+$ tar -xzvf v0.5.0.tar.gz
+$ mv DeepSpeech-0.5.0 DeepSpeech
+```
+
 ### Speech Corpus
 
 * [German Distant Speech Corpus (TUDA-De)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html) ~127h
@@ -48,22 +55,25 @@ xargs -a linux_requirements.txt sudo apt-get install
 
 - **Download the corpus**
 
-1. **_Tuda-De_**
+**1. _Tuda-De_**
 ```
 $ mkdir tuda
 $ cd tuda
-$ wget 
+$ wget http://www.repository.voxforge1.org/downloads/de/german-speechdata-package-v2.tar.gz
+$ tar -xzvf german-speechdata-package-v2.tar.gz
 ```
 
-2. **_Mozilla_**
+**2. _Mozilla_**
 ```
+$ cd ..
 $ mkdir mozilla
 $ cd mozilla
-$ wget
+$ wget https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-2/de.tar.gz
 ```
  
-3. **_Voxforge_**
+**3. _Voxforge_**
 ```
+$ cd ..
 $ mkdir voxforge
 $ cd voxforge
 ```
@@ -77,9 +87,15 @@ dl.download(voxforge_corpus_path)
 - Prepare audio data
 
 ```
-$ deepspeech-german/prepare_data.py --tuda $tuda_corpus_path $export_path/data_tuda
-$ deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path/data_voxforge
+$ cd ..
+$ git clone https://github.com/AASHISHAG/deepspeech-german.git
+$ deepspeech-german/pre-processing/prepare_data.py --tuda $tuda_corpus_path  $export_path_data_tuda
+$ deepspeech-german/voxforge/run_to_utf_8.sh
+$ deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path_data_voxforge
+$ DeepSpeech/bin/import_cv2.py --deepspeech-german/data/alphabet.txt $export_path_data_mozilla
 ```
+
+_NOTE: Change the path accordingly in run_to_utf_8.sh_
 
 ### Language Model
 
