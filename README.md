@@ -191,12 +191,12 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 
 Some results from our findings.
 
-** Mozilla ~ **
-** Voxforge ~ **
-** Tuda-De ~ **
-** Tuda-De+Mozilla ~ **
-** Tuda-De+Voxforge ~ **
-** Tuda-De+Voxforge+Mozilla ~ **
+**1. Mozilla ~xx **
+**2. Voxforge ~xx **
+**3. Tuda-De ~xx **
+**4. Tuda-De+Mozilla ~xx **
+**5. Tuda-De+Voxforge ~xx **
+**6. Tuda-De+Voxforge+Mozilla ~xx **
 
 _NOTE: Refer our paper for findings._
 
