@@ -188,7 +188,21 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 
 ### Results
 
+| Dataset | WER |
+| --- | --- |
+| Mozilla | xx |
+| Voxforge | xx |
+| Tuda-De | xx |
+| Tuda-De + Mozilla | xx |
+| Tuda-De + Voxforge | xx |
+| Tuda-De + Voxforge + Mozilla | xx |
+
+
 ### Models
+
+1. [Voxforge]()
+2. [Mozilla]()
+3. [Tuda]()
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
