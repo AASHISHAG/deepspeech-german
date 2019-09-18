@@ -8,8 +8,6 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 	<img src="media/deep-speech-v3.png" align="center" title="DeepSpeech v0.5.0" />
 </p>
 
-
-
 ## Important Links:
 
 **Paper:** 
@@ -204,7 +202,7 @@ Some results from our findings.
 - Tuda-De+Voxforge ~xx
 - Tuda-De+Voxforge+Mozilla ~xx
 
-_NOTE: Refer our paper for more findings._
+_NOTE: Refer our paper for more information._
 
 ### Trained Models
 
@@ -225,5 +223,4 @@ If you use our findings/scripts in your academic work, please cite:
 ```
 
 ```
-
-An open-access Arxiv preprint is available here: 
+<!--  An open-access Arxiv preprint is available here: -->
