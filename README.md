@@ -203,9 +203,9 @@ Some results from our findings.
 
 - Mozilla ~xx
 - Voxforge ~xx
-- Tuda-De ~xx
+- Tuda-De 26.8%
 - Tuda-De+Mozilla ~xx
-- Tuda-De+Voxforge ~xx
+- Tuda-De+Voxforge 15.1%
 - Tuda-De+Voxforge+Mozilla ~xx
 
 _NOTE: Refer our paper for more information._
