@@ -196,12 +196,12 @@ $ nohup deepspeech-german/hyperparameter_optimization.sh &
 
 Some results from our findings.
 
-- Mozilla ~xx
-- Voxforge ~xx
+- Mozilla 79.7%
+- Voxforge 72.1%
 - Tuda-De 26.8%
-- Tuda-De+Mozilla ~xx
+- Tuda-De+Mozilla 57.3%
 - Tuda-De+Voxforge 15.1%
-- Tuda-De+Voxforge+Mozilla ~xx
+- Tuda-De+Voxforge+Mozilla 21.5%
 
 _NOTE: Refer our paper for more information._
 
