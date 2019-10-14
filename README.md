@@ -220,6 +220,14 @@ https://drive.google.com/drive/folders/1nG6xii2FP6PPqmcp4KtNVvUADXxEeakk?usp=sha
 ## References
 If you use our findings/scripts in your academic work, please cite:
 ```
-
+@inproceedings{agarwal-zesch-2019-german,
+    author = "Aashish Agarwal and Torsten Zesch",
+    title = "German End-to-end Speech Recognition based on DeepSpeech",
+    booktitle = "Preliminary proceedings of the 15th Conference on Natural Language Processing (KONVENS 2019): Long Papers",
+    year = "2019",
+    address = "Erlangen, Germany",
+    publisher = "German Society for Computational Linguistics \& Language Technology",
+    pages = "111--119"
+}
 ```
 <!--  An open-access Arxiv preprint is available here: -->
