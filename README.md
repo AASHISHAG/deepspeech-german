@@ -175,7 +175,7 @@ _NOTE: Refer [Mozilla's documentation](https://github.com/mozilla/DeepSpeech/tre
 
 2. Build Trie
 ```
-$ DeepSpeech/native_client/generate_trie $exp_path/alphabet.txt $exp_path/lm.binary $exp_path/clean_vocab.txt $exp_path/trie
+$ DeepSpeech/native_client/generate_trie $path/alphabet.txt $path/lm.binary $exp_path/trie
 ```
 
 ### Training
