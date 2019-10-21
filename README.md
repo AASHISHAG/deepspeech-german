@@ -171,6 +171,20 @@ $ ./configure
 $ ln -s ../DeepSpeech/native_client ./
 $ bazel build --config=monolithic -c opt --copt=-O3 --copt="-D_GLIBCXX_USE_CXX11_ABI=0" --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:generate_trie --config=cuda
 ```
+
+Flags used to configure TensorFlow:
+
+```
+Do you wish to build TensorFlow with XLA JIT support? [Y/n]: n
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: N
+Do you wish to build TensorFlow with ROCm support? [y/N]: N
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
+Do you wish to build TensorFlow with TensorRT support? [y/N]: N
+Do you want to use clang as CUDA compiler? [y/N]: N
+Do you wish to build TensorFlow with MPI support? [y/N]: N
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: N
+```
+
 _NOTE: Refer [Mozilla's documentation](https://github.com/mozilla/DeepSpeech/tree/master/native_client) for updates. We used **Bazel Build label: 0.19.2** with **DeepSpeechV0.5.0**_
 
 2. Build Trie
