@@ -11,7 +11,7 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 
 ## Important Links:
 
-**Paper:** 
+**Paper:** https://www.researchgate.net/publication/336532830_German_End-to-end_Speech_Recognition_based_on_DeepSpeech
 
 **DeepSpeech-API:** https://github.com/AASHISHAG/DeepSpeech-API
 
