@@ -223,11 +223,13 @@ Some results from our findings.
 
 _NOTE: Refer our paper for more information._
 
-### Trained Language Model, Trie and Speech Model
+### Trained Language Model, Trie, Speech Model and Checkpoints
 
 The DeepSpeech model can be directly re-trained on new dataset. The required dependencies are available at:
 
 https://drive.google.com/drive/folders/1nG6xii2FP6PPqmcp4KtNVvUADXxEeakk?usp=sharing
+
+https://drive.google.com/file/d/1VN1xPH0JQNKK6DiSVgyQ4STFyDY_rle3/view
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
