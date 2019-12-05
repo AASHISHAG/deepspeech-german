@@ -13,7 +13,6 @@ chardet==3.0.4
 cryptography==2.6.1
 cycler==0.10.0
 decorator==4.4.0
-deepspeech==0.2.0a8
 docopt==0.6.2
 ds-ctcdecoder==0.5.0a7
 gast==0.2.2
