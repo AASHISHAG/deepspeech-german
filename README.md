@@ -96,11 +96,16 @@ dl.download(voxforge_corpus_path)
 
 ```
 $ cd ..
+$ ##Tuda-De
 $ git clone https://github.com/AASHISHAG/deepspeech-german.git
 $ deepspeech-german/pre-processing/prepare_data.py --tuda $tuda_corpus_path  $export_path_data_tuda
-$ deepspeech-german/voxforge/run_to_utf_8.sh
-$ deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path_data_voxforge
-$ DeepSpeech/bin/import_cv2.py --deepspeech-german/data/alphabet.txt $export_path_data_mozilla
+
+$ ##Voxforge
+$ deepspeech-german/pre-processing/run_to_utf_8.sh
+$ python3 deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path_data_voxforge
+
+$ ##Mozilla Common Voice
+$ python3 DeepSpeech/bin/import_cv2.py --deepspeech-german/data/alphabet.txt $export_path_data_mozilla
 ```
 
 _NOTE: Change the path accordingly in run_to_utf_8.sh_
