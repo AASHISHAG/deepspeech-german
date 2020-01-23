@@ -240,7 +240,7 @@ https://drive.google.com/file/d/1VN1xPH0JQNKK6DiSVgyQ4STFyDY_rle3/view
 
 **1. _German to German_**
 
-# Specify the checkpoint directory in (trasfer_model.sh)[https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh]
+- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh)
 
 ```
 $ nohup deepspeech-german/trasfer_model.sh & 
@@ -251,7 +251,7 @@ $ nohup deepspeech-german/trasfer_model.sh &
 - Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
 - Re-build Language Model, Trie and Corpus
 
-# Specify the checkpoint directory in (trasfer_model.sh)[https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh]
+- Specify the checkpoint directory in (trasfer_model.sh)[https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh]
 
 ```
 $ nohup deepspeech-german/trasfer_model.sh & 
