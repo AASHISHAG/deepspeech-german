@@ -260,9 +260,9 @@ $ nohup deepspeech-german/trasfer_model.sh &
 ### TODOLIST
 
 - [x] Update ReadMe for Transfer Learning
-- [] Realse model for DeepSpeech-v0.6.0
-- [] Add datasets - SWC
-- [] Add datasets - MAILABS
+- [ ] Realse model for DeepSpeech-v0.6.0
+- [ ] Add datasets - SWC
+- [ ] Add datasets - MAILABS
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
