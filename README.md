@@ -236,6 +236,32 @@ https://drive.google.com/drive/folders/1nG6xii2FP6PPqmcp4KtNVvUADXxEeakk?usp=sha
 
 https://drive.google.com/file/d/1VN1xPH0JQNKK6DiSVgyQ4STFyDY_rle3/view
 
+### Transfer Learning
+
+**1. _German to German_**
+
+```
+# Specify the checkpoint directory in (trasfer_model.sh)[https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh]
+$ nohup deepspeech-german/trasfer_model.sh & 
+```
+
+**2. _English to German_**
+
+- Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
+- Re-build Language Model, Trie and Corpus
+
+```
+# Specify the checkpoint directory in (trasfer_model.sh)[https://github.com/AASHISHAG/deepspeech-german/blob/master/trasfer_model.sh]
+$ nohup deepspeech-german/trasfer_model.sh & 
+```
+
+### TODOLIST
+
+- [x] Update ReadMe for Transfer Learning
+- [] Realse model for DeepSpeech-v0.6.0
+- [] Add datasets - SWC
+- [] Add datasets - MAILABS
+
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
