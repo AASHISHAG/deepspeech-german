@@ -257,7 +257,9 @@ $ nohup deepspeech-german/trasfer_model.sh &
 $ nohup deepspeech-german/trasfer_model.sh & 
 ```
 
-### TODOLIST
+_NOTE: The checkpoints should be from the same version to perform Transfer Learning_
+
+### TODO LIST
 
 - [x] Update ReadMe for Transfer Learning
 - [ ] Realse model for DeepSpeech-v0.6.0
