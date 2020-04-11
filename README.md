@@ -105,7 +105,7 @@ $ deepspeech-german/pre-processing/run_to_utf_8.sh
 $ python3 deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path_data_voxforge
 
 $ ##Mozilla Common Voice
-$ python3 DeepSpeech/bin/import_cv2.py --deepspeech-german/data/alphabet.txt $export_path_data_mozilla
+$ python3 DeepSpeech/bin/import_cv2.py --filter_alphabet deepspeech-german/data/alphabet.txt $export_path_data_mozilla
 ```
 
 _NOTE: Change the path accordingly in run_to_utf_8.sh_
