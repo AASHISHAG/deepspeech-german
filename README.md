@@ -228,20 +228,20 @@ Some results from our findings.
 
 _NOTE: Refer our paper for more information._
 
-### Trained Language Model, Trie, Speech Model and Checkpoints
+### Trained Models (Language Model, Trie, Speech Model and Checkpoints)
 
 The DeepSpeech model can be directly re-trained on new dataset. The required dependencies are available at:
 
-v0.5.0
+**1. _v0.5.0_**
 
 This model is trained on DeepSpeech v0.5.0 with Mozilla_v3+Voxforge+Tuda-De (please refer the paper for more details)
 https://drive.google.com/drive/folders/1nG6xii2FP6PPqmcp4KtNVvUADXxEeakk?usp=sharing
 
 https://drive.google.com/file/d/1VN1xPH0JQNKK6DiSVgyQ4STFyDY_rle3/view
 
-v0.6.0
+**2. _v0.6.0_**
 
-This model is trained on DeepSpeech v0.6.0 with Mozilla_v4+Voxforge+Tuda-De+MAILABS(454+57+184+233h=928h)
+This model is trained on DeepSpeech v0.6.0 with _**Mozilla_v4+Voxforge+Tuda-De+MAILABS(454+57+184+233h=928h)_**
 
 https://drive.google.com/drive/folders/1BKblYaSLnwwkvVOQTQ5roOeN0SuQm8qr?usp=sharing
 
