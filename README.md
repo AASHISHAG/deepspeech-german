@@ -245,6 +245,9 @@ This model is trained on DeepSpeech v0.6.0 with _**Mozilla_v4+Voxforge+Tuda-De+M
 
 https://drive.google.com/drive/folders/1BKblYaSLnwwkvVOQTQ5roOeN0SuQm8qr?usp=sharing
 
+ _**Why SHY to STAR the repository, if you use the resources? :D**_
+ 
+
 ### Transfer Learning
 
 **1. _German to German_**
@@ -272,6 +275,7 @@ _NOTE: The checkpoints should be from the same version to perform Transfer Learn
 
 - [x] Update ReadMe for Transfer Learning
 - [x] Realse model for DeepSpeech-v0.6.0
+- [ ] Realse model for DeepSpeech-v0.7.0
 - [x] Add datasets - MAILABS
 - [ ] Add datasets - SWC
 
