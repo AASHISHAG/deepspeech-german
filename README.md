@@ -228,6 +228,31 @@ Some results from our findings.
 
 _NOTE: Refer our paper for more information._
 
+### Transfer Learning
+
+**1. _German to German_**
+
+- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
+
+```
+$ nohup deepspeech-german/trasfer_model.sh & 
+```
+
+**2. _English to German_**
+
+- Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
+- Re-build Language Model, Trie and Corpus
+
+- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
+
+```
+$ nohup deepspeech-german/trasfer_model.sh & 
+```
+
+_NOTE: The checkpoints should be from the same version to perform Transfer Learning_
+
+
+
 ### Trained Models (Language Model, Trie, Speech Model and Checkpoints)
 
 The DeepSpeech model can be directly re-trained on new dataset. The required dependencies are available at:
@@ -253,29 +278,6 @@ https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sha
 
  _**Why being SHY to STAR the repository, if you use the resources? :D**_
  
-
-### Transfer Learning
-
-**1. _German to German_**
-
-- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
-
-```
-$ nohup deepspeech-german/trasfer_model.sh & 
-```
-
-**2. _English to German_**
-
-- Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
-- Re-build Language Model, Trie and Corpus
-
-- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
-
-```
-$ nohup deepspeech-german/trasfer_model.sh & 
-```
-
-_NOTE: The checkpoints should be from the same version to perform Transfer Learning_
 
 ### TODO LIST
 
