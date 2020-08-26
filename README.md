@@ -245,7 +245,13 @@ This model is trained on DeepSpeech v0.6.0 with _**Mozilla_v4+Voxforge+Tuda-De+M
 
 https://drive.google.com/drive/folders/1BKblYaSLnwwkvVOQTQ5roOeN0SuQm8qr?usp=sharing
 
- _**Why SHY to STAR the repository, if you use the resources? :D**_
+**3. _v0.7.4_**
+
+This model is trained on DeepSpeech v0.7.4 using pre-trained English model released by Mozilla _**English+Mozilla_v5+MAILABS+Tuda-De+Voxforge (1700+750+233+184+57h=2924h)**_
+
+https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sharing
+
+ _**Why being SHY to STAR the repository, if you use the resources? :D**_
  
 
 ### Transfer Learning
@@ -273,10 +279,9 @@ _NOTE: The checkpoints should be from the same version to perform Transfer Learn
 
 ### TODO LIST
 
-- [x] Update ReadMe for Transfer Learning
 - [x] Realse model for DeepSpeech-v0.6.0
-- [ ] Realse model for DeepSpeech-v0.7.0
-- [x] Add datasets - MAILABS
+- [x] Realse model for DeepSpeech-v0.7.4
+- [ ] Realse model for DeepSpeech-v0.8.0
 - [ ] Add datasets - SWC
 
 
