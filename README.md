@@ -280,7 +280,7 @@ https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sha
 
 This model is trained on DeepSpeech v0.9.0 using pre-trained English model released by Mozilla _**English+Mozilla_v5+SWC+MAILABS+Tuda-De+Voxforge (1700+750+248+233+184+57h=3172h)**_
 
-Link: Upadating soon.
+Link: Updating soon.
 
  _**Why being SHY to STAR the repository, if you use the resources? :D**_
  
