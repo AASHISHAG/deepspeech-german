@@ -276,6 +276,12 @@ This model is trained on DeepSpeech v0.7.4 using pre-trained English model relea
 
 https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sharing
 
+**3. _v0.9.0_**
+
+This model is trained on DeepSpeech v0.9.0 using pre-trained English model released by Mozilla _**English+Mozilla_v5+SWC+MAILABS+Tuda-De+Voxforge (1700+750+248+233+184+57h=3172h)**_
+
+Link: Upadating soon.
+
  _**Why being SHY to STAR the repository, if you use the resources? :D**_
  
 
@@ -283,8 +289,8 @@ https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sha
 
 - [x] Realse model for DeepSpeech-v0.6.0
 - [x] Realse model for DeepSpeech-v0.7.4
-- [ ] Realse model for DeepSpeech-v0.8.0
-- [ ] Add datasets - SWC
+- [x] Realse model for DeepSpeech-v0.9.0
+- [x] Add datasets - SWC
 
 
 ## Acknowledgments
