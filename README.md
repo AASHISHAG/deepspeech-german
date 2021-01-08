@@ -15,7 +15,7 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 
 **DeepSpeech-API:** https://github.com/AASHISHAG/DeepSpeech-API
 
-This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSpeech/releases/tag/v0.5.0). Refer to [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) for lastest updates.
+This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSpeech/releases/tag/v0.5.0). Refer to [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) for latest updates.
 
 ## Contents
 
@@ -232,10 +232,10 @@ _NOTE: Refer our paper for more information._
 
 **1. _German to German_**
 
-- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
+- Specify the checkpoint directory in [transfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
 
 ```
-$ nohup deepspeech-german/trasfer_model.sh & 
+$ nohup deepspeech-german/transfer_model.sh & 
 ```
 
 **2. _English to German_**
@@ -243,10 +243,10 @@ $ nohup deepspeech-german/trasfer_model.sh &
 - Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
 - Re-build Language Model, Trie and Corpus
 
-- Specify the checkpoint directory in [trasfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
+- Specify the checkpoint directory in [transfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
 
 ```
-$ nohup deepspeech-german/trasfer_model.sh & 
+$ nohup deepspeech-german/transfer_model.sh & 
 ```
 
 _NOTE: The checkpoints should be from the same version to perform Transfer Learning_
