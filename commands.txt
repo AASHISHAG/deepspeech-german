@@ -1,6 +1,0 @@
-#kill session
-kill $(ps aux | grep python | grep DeepSpeech.py | awk '{print $2}')
-cat nohup.out | grep 'Test on ../german-speech-corpus/'
-
-#bazel uninstall
-rm -fr ~/.bazel ~/.bazelrc ~/.cache/bazel
