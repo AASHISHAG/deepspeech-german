@@ -1,0 +1,6 @@
+[submodule "kenlm"]
+	path = kenlm
+	url = https://github.com/kpu/kenlm
+[submodule "DeepSpeech"]
+	path = DeepSpeech
+	url = https://github.com/mozilla/DeepSpeech

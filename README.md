@@ -2,12 +2,11 @@
 
 _This is the project for the paper [German End-to-end Speech Recognition based on DeepSpeech](https://www.researchgate.net/publication/336532830_German_End-to-end_Speech_Recognition_based_on_DeepSpeech) published at [KONVENS 2019](https://2019.konvens.org/)._
 
-This project aims to develop a working Speech to Text module using [Mozilla DeepSpeech](https://github.com/mozilla/DeepSpeech), which can be used for any Audio processing pipeline. [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) is a state-of-the-art open-source automatic speech recognition (ASR) toolkit. DeepSpeech is using a model trained by machine learning techniques based on [Baidu's Deep Speech](https://gigaom2.files.wordpress.com/2014/12/deep_speech3_12_17.pdf) research paper. Project DeepSpeech uses Google's TensorFlow to make the implementation easier.
+This project aims to develop a working Speech to Text module using [Mozilla DeepSpeech](https://github.com/mozilla/DeepSpeech), which can be used for any Audio processing pipeline. 
+[Mozilla DeepSpeech Architecture](https://deepspeech.readthedocs.io/en/v0.9.3/DeepSpeech.html) is a state-of-the-art open-source automatic speech recognition (ASR) toolkit. DeepSpeech is using a model trained by machine learning techniques based on [Baidu's Deep Speech](https://gigaom2.files.wordpress.com/2014/12/deep_speech3_12_17.pdf) research paper. 
+Project DeepSpeech uses Google's TensorFlow to make the implementation easier.
 
-<p align="center">
-	<img src="media/deep-speech-v3.png" align="center" title="DeepSpeech v0.5.0" />
-</p>
-
+![DeepSpeech](./media/rnn_fig-624x598.png)
 
 ## Important Links:
 
@@ -15,7 +14,7 @@ This project aims to develop a working Speech to Text module using [Mozilla Deep
 
 **DeepSpeech-API:** https://github.com/AASHISHAG/DeepSpeech-API
 
-This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSpeech/releases/tag/v0.5.0). Refer to [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) for latest updates.
+This Readme is written for [DeepSpeech v0.9.3](https://github.com/mozilla/DeepSpeech/releases/tag/v0.9.3). Refer to [Mozillla DeepSpeech](https://github.com/mozilla/DeepSpeech) for latest updates.
 
 ## Contents
 
@@ -23,201 +22,408 @@ This Readme is written for [DeepSpeech v0.5.0](https://github.com/mozilla/DeepSp
 2. [Speech Corpus](#speech-corpus)
 3. [Language Model](#language-model)
 4. [Training](#training)
-5. [Hyper-Paramter Optimization](#hyper-paramter-optimization)
+5. [Hyper-Parameter Optimization](#hyper-parameter-optimization)
 6. [Results](#results)
 7. [Trained Models](#trained-models)
 8. [Acknowledgments](#acknowledgments)
 9. [References](#references)
 
-### Requirements
+## Requirements
 
-#### Installing Python bindings
+The instruction are focusing on Linux. It might be possible to use also MacOS and Windows as long as a shell environment can be provided, however some instructions and scripts might have to be adjusted then.
+
+`DeepSpeech` and `KenLM` were added as sub modules. To fetch the sub modules execute:
+
+~~~
+git pull --recurse-submodules
+~~~
+
+### Developer Information
+
+To update the used DeepSpeech version checkout in the `DeepSpeech` submodule the corresponding tag:
+
+~~~
+git checkout tags/v0.9.3
+~~~
+
+The same applies to KenLM.
+
+### Installing Python bindings
+
+The DeepSpeech tools require still TensorFlow 1.15, which is only supported up to Python 3.7. [`pyenv`](https://github.com/pyenv/pyenv.git) will be used to set up a dedicated Python version.
+
+~~~
+git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+~~~
+
+Follow the instruction on the pyenv page, for Ubuntu Desktop
+Add to your `~/.bashrc`:
+
+~~~
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+~~~
+
+~~~
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.bash_profile
+~~~
+
+Log out or run:
+
+~~~
+source ~/.bashrc
+~~~
+
+[`virtualenv`](https://virtualenv.pypa.io/en/latest/installation.html) will be used to provide a separate Python environment.
 
 ```
-virtualenv -p python3 deepspeech-german
-source deepspeech-german/bin/activate
+pyenv install 3.7.9
+sudo pip3 install virtualenv
+virtualenv --python=$HOME/.pyenv/versions/3.7.9/bin/python3.7 python-environments
+source python-environments/bin/activate
 pip3 install -r python_requirements.txt
 ```
 
-#### Installing Linux dependencies
+_NOTE: While writing this 2 issues were fixed in [audiomate](https://github.com/ynop/audiomate) 
+and a GitHub patched version was used. This can be updated once  the upstream audiomate has released a new version._ 
 
-The necessary Linux dependencies can be found in linux_requirements.
+### Installing Linux dependencies
+
+The necessary Linux dependencies can be found in `linux_requirements`.
 
 ```
 xargs -a linux_requirements.txt sudo apt-get install
 ```
 
-#### Mozilla DeepSpeech
-```
-$ wget https://github.com/mozilla/DeepSpeech/archive/v0.5.0.tar.gz 
-$ tar -xzvf v0.5.0.tar.gz
-$ mv DeepSpeech-0.5.0 DeepSpeech
-```
-
-### Speech Corpus
+## Speech Corpus
 
 * [German Distant Speech Corpus (TUDA-De)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html) ~127h
-* [Mozilla Common Voice](https://voice.mozilla.org/) ~140h
+   * [Download Folder](http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/)
+* [Mozilla Common Voice](https://commonvoice.mozilla.org/en) ~140h
+  * [Download](https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-6.1-2020-12-11/de.tar.gz)
 * [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german) ~35h
+  * [Download Folder](http://www.repository.voxforge1.org/downloads/de/Trunk/Audio/Main/16kHz_16bit/)
+* [M-AILABS](https://www.caito.de/2019/01/the-m-ailabs-speech-dataset/)
+  * [Download Folder](http://www.caito.de/data/Training/stt_tts/)
+* [Spoken Wikipedia Corpora](http://nats.gitlab.io/swc/)
+  * [Download Folder](https://corpora.uni-hamburg.de/hzsk/de/islandora/object/spoken-corpus:swc-2.0#additional-files)
 
+### Download the corpus
 
-- **Download the corpus**
+For the speech corpus download the script [`download_speech_corpus.py`](./pre-processing/download_speech_corpus.py) is used and 
+it will take the above URLs. 
+
+~~~
+source python-environments/bin/activate
+python pre-processing/download_speech_corpus.py --tuda --cv --swc --voxforge --mailabs
+~~~
+
+_NOTE: The python module of `audiomate` which is used for the download process is using some fixed URLs. 
+These URLs can be outdated depending on last release of `audiomate`. 
+`download_speech_corpus.py` is patching these URLS, but in case a new speech corpus is released 
+the URLs in the script must be updated again or passed as arguments `<speech_corpus>_url`, e.g. `--tuda_url <url>`._
+
+It is also possible to leave out some corpus and specify just a subset to download. The default target directory
+is the current directory, i.e. project root but could be set with `--target_path`. The path used in this documentation must 
+be adjusted then accordingly.
+
+The tool will display after a while a download progress indicator.
+
+The downloads will be found in the folder `tuda`, `mozilla`, `voxforge`, `swc` and `mailabs`. 
+If a download failed the incomplete file(s) must be removed manually.
+
+### Prepare the Audio Data
+
+The output of this step is a CSV format with references to the audio and corresponding text split into train, 
+dev and test data for the TensorFlow network.
+
+Convert to UTF-8:
+
+~~~
+pre-processing/run_to_utf_8.sh
+~~~
+
+The [`pre-processing/prepare_data`](pre-processing/prepare_data.py) script imports the downloaded corpora. It expects the corpus option 
+followed by the corpus directory followed by the destination directory. Look into the script source to find all possible corpus options.
+It is possible to train a subset (i.e. by just specifying one of the options) or all of the speech corpora.
+
+Execute the following commands in the root directory of this project after running:
+
+~~~shell
+source python-environments/bin/activate
+~~~
+
+_NOTE: If the filename or folders of the downloaded speech corpora are changing the paths used in this section must be updated, too._
+
+Some Examples:
 
 **1. _Tuda-De_**
-```
-$ mkdir tuda
-$ cd tuda
-$ wget http://www.repository.voxforge1.org/downloads/de/german-speechdata-package-v2.tar.gz
-$ tar -xzvf german-speechdata-package-v2.tar.gz
+
+```shell
+python pre-processing/prepare_data.py --tuda tuda/german-speechdata-package-v3 german-speech-corpus/data_tuda
 ```
 
 **2. _Mozilla_**
+
+```shell
+python pre-processing/prepare_data.py --cv mozilla/cv-corpus-6.1-2020-12-11/de german-speech-corpus/data_mozilla
 ```
-$ cd ..
-$ mkdir mozilla
-$ cd mozilla
-$ wget https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-2/de.tar.gz
-```
- 
+
 **3. _Voxforge_**
-```
-$ cd ..
-$ mkdir voxforge
-$ cd voxforge
-```
 
-```python
-from audiomate.corpus import io
-dl = io.VoxforgeDownloader(lang='de')
-dl.download(voxforge_corpus_path)
+```shell
+python pre-processing/prepare_data.py --voxforge voxforge german-speech-corpus/data_voxforge
 ```
 
-- **Prepare the Audio Data**
+**4. _Voxforge + Tuda-De_**
 
-```
-$ cd ..
-$ ##Tuda-De
-$ git clone https://github.com/AASHISHAG/deepspeech-german.git
-$ deepspeech-german/pre-processing/prepare_data.py --tuda $tuda_corpus_path  $export_path_data_tuda
-
-$ ##Voxforge
-$ deepspeech-german/pre-processing/run_to_utf_8.sh
-$ python3 deepspeech-german/prepare_data.py --voxforge $voxforge_corpus_path $export_path_data_voxforge
-
-$ ##Mozilla Common Voice
-$ python3 DeepSpeech/bin/import_cv2.py --filter_alphabet deepspeech-german/data/alphabet.txt $export_path_data_mozilla
+```shell
+python pre-processing/prepare_data.py --voxforge voxforge --tuda tuda/german-speechdata-package-v2 german-speech-corpus/data_tuda+voxforge
 ```
 
-_NOTE: Change the path accordingly in run_to_utf_8.sh_
+**5. _Voxforge + Tuda-De + Mozilla_**
 
-### Language Model
+```shell
+python pre-processing/prepare_data.py --cv mozilla/cv-corpus-6.1-2020-12-11/de/clips --voxforge voxforge --tuda tuda/german-speechdata-package-v3 german-speech-corpus/data_tuda+voxforge+mozilla
+```
 
-We used [KenLM](https://github.com/kpu/kenlm.git) toolkit to train a 3-gram language model. It is Language Model inference code by [Kenneth Heafield](https://kheafield.com/)
+## Language Model
+
+We used [KenLM](https://github.com/kpu/kenlm.git) toolkit to train a 3-gram language model. It is Language Model inference code by [Kenneth Heafield](https://kheafield.com/) Consult the repository for any information regarding the compilation in case of errors.
 
 - **Installation**
 
-```
-$ git clone https://github.com/kpu/kenlm.git
-$ cd kenlm
-$ mkdir -p build
-$ cd build
-$ cmake ..
-$ make -j `nproc`
+```shell
+cd kenlm
+mkdir -p build
+cd build
+cmake ..
+make -j `nproc`
 ```
 
-- **Corpus**
+`nproc` defines the number of threads to use.
+
+### Text Corpus
 
 We used an open-source [German Speech Corpus](http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz) released by [University of Hamburg](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html).
 
-1. Download the data
+#### Download the data:
 
-```
-$ wget http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz
-$ gzip -d German_sentences_8mil_filtered_maryfied.txt.gz
-```
-
-2. Pre-process the data
-
-```
-$ deepspeech-german/pre-processing/prepare_vocab.py $text_corpus_path $exp_path/clean_vocab.txt
+```shell
+mkdir german-text-corpus
+cd german-text-corpus
+wget http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/German_sentences_8mil_filtered_maryfied.txt.gz
+gzip -d German_sentences_8mil_filtered_maryfied.txt.gz
 ```
 
-3. Build the Language Model
-```
-$kenlm/build/bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3
-$kenlm/build/bin/build_binary -T -s $exp_path/words.arpa $exp_path/lm.binary
+#### Pre-process the data
+
+Execute the following commands in the root directory of this project.
+
+```shell
+source python-environments/bin/activate
+python pre-processing/prepare_vocab.py german-text-corpus/German_sentences_8mil_filtered_maryfied.txt german-text-corpus/clean_vocab.txt
 ```
 
-#### NOTE: use [-S](https://kheafield.com/code/kenlm/estimation/) memoryuse_in_%, if malloc expection occurs
+#### Build the Language Model
+
+This step will create a `trie` data structure to describe the used vocabulary for the speech recognition. 
+This file is termed as "scorer" in the DeepSpeech terminology. 
+The script [`create_language_model.sh`](create_language_model.sh) is used for this.
+
+The script will use the compiled KenLM binaries and download a native DeepSpeechClient.
+The native DeepSpeech client is using the "cpu" architecture. For a different architecture pass as additional parameter the architecture.
+See the `--arch` parameter in `python DeepSpeech/util/taskcluster.py --help` for details.
+
+The mandatory `top_k` parameter in the script is set to 500000 which corresponds to > 98.43 % of all words in the downloaded text corpus.
+
+The `default_alpha` and `default_beta` parameters are taken from [Scorer documentation](https://deepspeech.readthedocs.io/en/v0.9.3/Scorer.html) 
+and are also the defaults in the `DeepSpeech.py`. 
+DeepSpeech is offering the `lm_optimizer.py` scripts to find better values (in case there would be different ones)._
+
+~~~shell
+./create_language_model.sh
+~~~
+
+_NOTE: A different scorer might be useful later for the efficient speech recognition in case of a special language domain. 
+Then an own text corpus should be used, and the script source can be used as a template for this scorer and be executed separately._
+
+## Training
+
+_NOTE: The training can be accelerated by using CUDA. 
+Follow the [GPU Installation Instructions](https://www.tensorflow.org/install/gpu) for TensorFlow. At the time of writing 
+also on Ubuntu 20.04 the toolchain for Ubuntu 18.04 has to be used._ 
+
+If CUDA is used the GPU package of TensorFlow has to be installed:
+
+~~~
+source python-environments/bin/activate
+pip uninstall tensorflow
+pip install tensorflow-gpu==1.15.4
+~~~
+
+```shell
+nohup ./train_model.sh <prepared_speech_corpus> &
+```
+
 Example:
+
+~~~
+nohup ./train_model.sh german-speech-corpus/data_tuda+voxforge+mozilla &
+~~~
+
+_Parameters:_
+
+* The default scorer is `german-text-corpus/kenlm.scorer`.
+* The default alphabet is `data/alphabet.txt`.
+* The default DeepSpeech processing data is stored under `deepspeech_processing`.
+* The model is stored under the directory `models`. 
+  
+It is possible to modify these parameters. If a parameter should take the default value, pass `""`.
+
+~~~shell
+./train_model.sh <prepared_speech_corpus> <alphabet> <scorer> <processing_dir> <models_dir>
+~~~
+
+Example:
+
+~~~shell
+./train_model.sh german-speech-corpus/data_tuda+voxforge+mozilla "" "" my_processing_dir my_models
+~~~
+
+_NOTE: The [augmentation parameters](https://deepspeech.readthedocs.io/en/v0.9.3/TRAINING.html#augmentation) are not used 
+and might be interesting for improving the results._
+
+_NOTE: Increase the `export_model_version` option in `train_model.sh` when a new model is trained._
+
+_NOTE: In case a `Not enough time for target transition sequence (required: 171, available: 0)` is thrown, 
+the currently only known fix is to edit the file `DeepSpeech/training/deepspeech_training/train.py` and
+add `, ignore_longer_outputs_than_inputs=True` to the call to `tfv1.nn.ctc_loss`._
+
+### TFLite Model Generation
+
+The TensorFLow Lite model suitable for resource restricted devices (embedded, Raspberry Pi 4, ...) can be generated with:
+
+~~~shell
+./export_tflite.sh
+~~~
+
+_Parameters:_
+
+* The default alphabet is `data/alphabet.txt`.
+* The default DeepSpeech processing data is taken from `deepspeech_processing`.
+* The model is stored under the directory `models`.
+  
+It is possible to modify these parameters. If a parameter should take the default value, pass `""`.
+
+~~~shell
+./export_tflite.sh <alphabet> <processing_dir> <models_dir>
+~~~
+
+Example:
+
+~~~shell
+./export_tflite.sh "" my_processing_dir my_models
+~~~
+
+### Fine-Tuning
+
+Fine-tuning is used when the alphabet is staying the same, since the alphabet stays the same when trying to add more 
+German text corpora it can be used.
+
+Consult the [Fine-Tuning DeepSpeech Documentation](https://deepspeech.readthedocs.io/en/v0.9.3/TRAINING.html#fine-tuning-same-alphabet)
+
+~~~shell
+nohup ./fine_tuning_model.sh <prepared_speech_corpus> &
+~~~
+
+Example:
+
+~~~
+nohup ./fine_tuning_model.sh german-speech-corpus/my_own_corpus &
+~~~
+
+_Parameters:_
+
+~~~shell
+./fine_tuning_model.sh <prepared_speech_corpus> <alphabet> <scorer> <processing_dir> <models_dir> <cuda_options>
+~~~
+
+* The default alphabet is `data/alphabet.txt`. 
+* The default DeepSpeech processing data is saved into `deepspeech_processing`.
+* The scorer is taken from `german-text-corpus/kenlm.scorer`.
+* The model is saved under the directory `models`.
+* CUDA options:
+  * `-load_cudnn` is not passed by default. If you don’t have a CUDA compatible GPU and the training was executed on a GPU (which is the default) 
+pass `--load_cudnn` to allow training on the CPU. _NOTE: This requires also the Python `tensorflow-gpu` dependency, although no GPU is available._
+  * `--train_cudnn` is not passed by default. It must be passed if the existing model was trained on a CUDA GPU and it should be continued on a CUDA GPU.
+
+Example:
+
+~~~shell
+./fine_tuning_model.sh german-speech-corpus/my_own_corpus "" "" "" "" "" "" --train_cudnn
+~~~
+
+### Transfer Learning
+
+Transfer learning must be used if the alphabet is changed, e.g. when using English and adding the German letters.
+Transfer learning is using an existing neural network, dropping one or more layers of this neural network and
+recalculated the weights with the new training data.
+
+Consult the [Transfer Learning DeepSpeech Documentation](https://deepspeech.readthedocs.io/en/v0.9.3/TRAINING.html#transfer-learning-new-alphabet)
+
+### Example English to German
+
+* The English DeepSpeech model is used as base model. The checkpoints from the [DeepSpeech English model](https://github.com/mozilla/DeepSpeech/releases) must be us. 
+E.g. `deepspeech-0.9.3-checkpoint.tar.gz` must be downloaded and extracted to `/deepspeech-0.9.3-checkpoint`.
+* For the German language the language model and scorer must be build (this was done already [above](#build-the-language-model)).
+* Call [`transfer_model.sh`](transfer_model.sh):
+
+```shell
+nohup ./transfer_model.sh german-speech-corpus/data_tuda+voxforge+mozilla+swc+mailabs deepspeech-0.9.3-checkpoint &
 ```
-$kenlm/build/bin/lmplz --text $exp_path/clean_vocab.txt --arpa $exp_path/words.arpa --o 3 -S 50%
+
+_NOTE: The checkpoints should be from the same DeepSpeech version to perform transfer learning._
+
+_Parameters:_
+
+* The default alphabet is `data/alphabet.txt`. 
+* The default DeepSpeech processing data is saved into `deepspeech_transfer_processing`.
+* The scorer is taken from `german-text-corpus/kenlm.scorer`.
+* The model is saved under the directory `transfer_models`.
+* The drop layer parameter is 1. 
+* CUDA options:
+  * `-load_cudnn` is not passed by default. If you don’t have a CUDA compatible GPU and the training was executed on a GPU (which is the default) 
+pass `--load_cudnn` to allow training on the CPU. _NOTE: This requires also the Python `tensorflow-gpu` dependency, although no GPU is available._
+  * `--train_cudnn` is not passed by default. It must be passed if the existing model was trained on a CUDA GPU and it should be continued on a CUDA GPU.
+
+It is possible to modify these parameters. If a parameter should take the default value, pass `""`.
+
+```shell
+nohup ./transfer_model.sh <prepared_speech_corpus> <load_checkpoint_directory> <alphabet> <scorer> <processing_dir> <models_dir> <drop_layers> <cuda_options> &
 ```
 
-### Trie
+Example:
 
-To build _Trie_ for the above trained _Language Model._
-
-#### Requirements
-
-* [General TensorFlow requirements](https://www.tensorflow.org/install/install_sources)
-* [libsox](https://sourceforge.net/projects/sox/)
-* [SWIG >= 3.0.12](http://www.swig.org/)
-* [node-pre-gyp](https://github.com/mapbox/node-pre-gyp)
-
-1. Build Native Client.
-
-```
-# The DeepSpeech tools are used to create the trie
-$ git clone https://github.com/mozilla/tensorflow.git
-$ cd tensorflow
-$ git checkout origin/r1.13
-$ ./configure
-$ ln -s ../DeepSpeech/native_client ./
-$ bazel build --config=monolithic -c opt --copt=-O3 --copt="-D_GLIBCXX_USE_CXX11_ABI=0" --copt=-fvisibility=hidden //native_client:libdeepspeech.so //native_client:generate_trie --config=cuda
+```shell
+nohup ./transfer_model.sh german-speech-corpus/data_tuda+voxforge+mozilla+swc+mailabs deepspeech-0.9.3-checkpoint "" "" "" my_models 2 --train_cudnn &
 ```
 
-_NOTE_: 
+### Hyper-Parameter Optimization
 
-Flags used to configure TensorFlow
+The learning rate can be tested with the script [hyperparameter_optimization.sh](hyperparameter_optimization.sh).
 
-```
-Do you wish to build TensorFlow with XLA JIT support? [Y/n]: n
-Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: N
-Do you wish to build TensorFlow with ROCm support? [y/N]: N
-Do you wish to build TensorFlow with CUDA support? [y/N]: y
-Do you wish to build TensorFlow with TensorRT support? [y/N]: N
-Do you want to use clang as CUDA compiler? [y/N]: N
-Do you wish to build TensorFlow with MPI support? [y/N]: N
-Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: N
+_NOTE: The drop out rate parameter is not tested in this script._
+
+Execute it with:
+
+```shell
+nohup ./hyperparameter_optimization.sh <prepared_speech_corpus> &
 ```
 
-_Refer [Mozilla's documentation](https://github.com/mozilla/DeepSpeech/tree/master/native_client) for updates. We used **Bazel Build label: 0.19.2** with **DeepSpeechV0.5.0**_
+## Results
 
-2. Build Trie
-```
-$ DeepSpeech/native_client/generate_trie $path/alphabet.txt $path/lm.binary $exp_path/trie
-```
-
-### Training
-
-Define the path of the corpus and the hyperparameters in _deepspeech-german/train_model.sh_ file.
-
-```
-$ nohup deepspeech-german/train_model.sh &
-```
-
-### Hyper-Paramter Optimization
-
-Define the path of the corpus and the hyperparameters in _deepspeech-german/hyperparameter_optimization.sh_ file.
-
-```
-$ nohup deepspeech-german/hyperparameter_optimization.sh &
-```
-
-### Results
-
-Some results from our findings.
+Some WER (word error rate) results from our findings.
 
 - Mozilla 79.7%
 - Voxforge 72.1%
@@ -228,34 +434,9 @@ Some results from our findings.
 
 _NOTE: Refer our paper for more information._
 
-### Transfer Learning
+## Trained Models
 
-**1. _German to German_**
-
-- Specify the checkpoint directory in [transfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
-
-```
-$ nohup deepspeech-german/transfer_model.sh & 
-```
-
-**2. _English to German_**
-
-- Change all umlauts characters ä,ö,ü,ß to ae, oe, ue, ss
-- Re-build Language Model, Trie and Corpus
-
-- Specify the checkpoint directory in [transfer_model.sh](https://github.com/AASHISHAG/deepspeech-german/blob/master/transfer_model.sh)
-
-```
-$ nohup deepspeech-german/transfer_model.sh & 
-```
-
-_NOTE: The checkpoints should be from the same version to perform Transfer Learning_
-
-
-
-### Trained Models (Language Model, Trie, Speech Model and Checkpoints)
-
-The DeepSpeech model can be directly re-trained on new dataset. The required dependencies are available at:
+The DeepSpeech model can be directly re-trained on new datasets. The required dependencies are available at:
 
 **1. _v0.5.0_**
 
@@ -276,31 +457,22 @@ This model is trained on DeepSpeech v0.7.4 using pre-trained English model relea
 
 https://drive.google.com/drive/folders/1PFSIdmi4Ge8EB75cYh2nfYOXlCIgiMEL?usp=sharing
 
-**3. _v0.9.0_**
+**4. _v0.9.0_**
 
 This model is trained on DeepSpeech v0.9.0 using pre-trained English model released by Mozilla _**English+Mozilla_v5+SWC+MAILABS+Tuda-De+Voxforge (1700+750+248+233+184+57h=3172h)**_
 
-Thanks to @koh-osug for providing Tflite model.
+Thanks to [Karsten Ohme](https://github.com/kaoh) for providing the TFLite model.
 
 Link: https://drive.google.com/drive/folders/1L7ILB-TMmzL8IDYi_GW8YixAoYWjDMn1?usp=sharing
 
  _**Why being SHY to STAR the repository, if you use the resources? :D**_
- 
-
-### TODO LIST
-
-- [x] Realse model for DeepSpeech-v0.6.0
-- [x] Realse model for DeepSpeech-v0.7.4
-- [x] Realse model for DeepSpeech-v0.9.0
-- [x] Add datasets - SWC
-
 
 ## Acknowledgments
 * [Prof. Dr.-Ing. Torsten Zesch](https://www.ltl.uni-due.de/team/torsten-zesch) - Co-Author
 * [Dipl.-Ling. Andrea Horbach](https://www.ltl.uni-due.de/team/andrea-horbach)
 * [Matthias](https://github.com/ynop/audiomate)
 
- 
+
 ## References
 If you use our findings/scripts in your academic work, please cite:
 ```

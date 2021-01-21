@@ -1,0 +1,13 @@
+.idea
+swc
+tuda
+mozilla
+mailabs
+voxforge
+
+tar.xz
+DeepSpeechNativeClient
+german-speech-corpus
+german-text-corpus
+__pycache__
+/deepspeech_processing/

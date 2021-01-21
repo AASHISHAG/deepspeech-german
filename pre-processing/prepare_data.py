@@ -77,7 +77,7 @@ if __name__ == '__main__':
     clean_transcriptions(merged_corpus)
 
     splitter = subset.Splitter(merged_corpus, random_seed=38)
-    splits = splitter.split_by_length_of_utterances(
+    splits = splitter.split(
         {'train': 0.7, 'dev': 0.15, 'test': 0.15}, separate_issuers=True)
 
     merged_corpus.import_subview('train', splits['train'])
