@@ -97,11 +97,11 @@ xargs -a linux_requirements.txt sudo apt-get install
 
 ## Speech Corpus
 
-* [German Distant Speech Corpus (TUDA-De)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html) ~127h
+* [German Distant Speech Corpus (TUDA-De)](https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/acoustic-models.html)
    * [Download Folder](http://ltdata1.informatik.uni-hamburg.de/kaldi_tuda_de/)
-* [Mozilla Common Voice](https://commonvoice.mozilla.org/en) ~140h
-  * [Download](https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-6.1-2020-12-11/de.tar.gz)
-* [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german) ~35h
+* [Mozilla Common Voice](https://commonvoice.mozilla.org/en)
+  * [Download](https://mozilla-common-voice-datasets.s3.dualstack.us-west-2.amazonaws.com/cv-corpus-7.0-2021-07-21/cv-corpus-7.0-2021-07-21-de.tar.gz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQ3GQRTO3N7H2GD2S%2F20210915%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210915T181038Z&X-Amz-Expires=43200&X-Amz-Security-Token=FwoGZXIvYXdzEBsaDCl2Q%2B8HrFAwW0rAWCKSBD0BMS3JHJnT7D%2FyUq2hPfv8s%2FUpOe3LxV%2B205PHPTagrpnNr4ZOzwYx9R6R0NvyME1uSfKN5pqYUFbrxewJhx%2BduWM%2FGkJWCLJnxjWeaUD6qslPr4yJNWDsBLQgcGzLU2GpVmqyz7%2FHZ4pej5oLdceEUoSxZkYnhdI93V7pqe%2BpHT2LTJ9UJtCLtR2pc%2BWLpdyZggTnn7brMwztuijRnGp9pYeH87xryVozU0qFq1AAXddlgT%2Bn0%2BD%2Fe81Le9gI3cGyryzwkdT9uwttu6%2B8rZqWv4Ug5S9vROYuJbJMigMG4Lqi9hZMencyBEF4uSHAUsz6Wii4wjnkpOyHHlsjh7C1bNKD2MfCN4Z%2BBrrWFPyMskGfjc9XEuJN3AgjCTTYoUQRpm7ekzSH7PTNvrwgQgdKvntqZB2ARJokr%2BpxRyH%2FPLZ2gqNw2rYSDqtPtMux%2B%2Fx7E8PfddULZWUyfIKSKgJJN8niL90BKbADsPw%2BOg9K8c65vDrHmgBYpS1ivZCB6iM0pFBFNO4LpgkP1qOCaJJ9bGCmfgRt05p2naZBsCd7UG2173FH1PVnMJRA8Gj6bzdm%2FLzlkx%2BSr7820PIMwyGOVr8ne0RiemudEJM%2FxNaPckJZPg2O0AbwV2zdUXxI7OfVd0E0ijCW%2BB4ijOhoGoanHW3sZGFTkng97wRqUmf39o2v4xZja96IxwhRrU5bejV9KKLqiIoGMiqrsyElxtsPoRSfceLxQHnJO7G3l%2BTRmojuMICCn3mAVT5yRNfXGnuopKg%3D&X-Amz-Signature=314bae50580851720115d2fd8c729677dd5b2366893bbc9f16760f0fb0ffff1b&X-Amz-SignedHeaders=host)
+* [Voxforge](http://www.voxforge.org/home/forums/other-languages/german/open-speech-data-corpus-for-german)
   * [Download Folder](http://www.repository.voxforge1.org/downloads/de/Trunk/Audio/Main/16kHz_16bit/)
 * [M-AILABS](https://www.caito.de/2019/01/the-m-ailabs-speech-dataset/)
   * [Download Folder](http://www.caito.de/data/Training/stt_tts/)
