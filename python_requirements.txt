@@ -32,7 +32,7 @@ numba==0.49.1
 numpy==1.18.1
 oauthlib==3.1.0
 opt-einsum==3.3.0
-PGet==0.5.0
+PGet==0.5.1
 progressbar2==3.53.1
 protobuf==3.14.0
 pyasn1==0.4.8
