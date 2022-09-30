@@ -21,7 +21,7 @@ h5py==2.10.0
 idna==2.10
 importlib-metadata==3.3.0
 intervaltree==3.0.2
-joblib==1.0.0
+joblib==1.2.0
 Keras-Preprocessing==1.1.2
 librosa==0.7.2
 llvmlite==0.32.1
